@@ -5,6 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="./css/output.css" rel="stylesheet" />
     <link href="./css/style.css" rel="stylesheet" />
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
   </head>
   <body>
     <div class="justify-center navbar bg-primary">
@@ -52,8 +60,13 @@
     </div>
 
     <div class="min-h-screen hero bg-base-200">
-      <div class="flex-col items-center justify-center max-w-xl hero-content">
-        <div class="shadow-2xl card shrink-0 bg-base-100">
+      <div
+        class="flex-col items-center justify-center w-full max-w-xl hero-content"
+      >
+        <div
+          class="shadow-2xl card shrink-0 bg-base-100"
+          style="width: 100%; max-width: 450px"
+        >
           <form class="card-body" action="/register" method="post">
             <h1 class="text-3xl text-center">Crea tu cuenta</h1>
             <div class="form-control">
@@ -62,7 +75,19 @@
               </label>
               <input
                 type="text"
-                placeholder="Usuario"
+                placeholder="Introduce su usuario"
+                name="user"
+                class="input input-bordered"
+                required
+              />
+            </div>
+            <div class="form-control">
+              <label class="label">
+                <span class="label-text">Correo</span>
+              </label>
+              <input
+                type="email"
+                placeholder="Introduce su correo"
                 name="username"
                 class="input input-bordered"
                 required
@@ -74,21 +99,26 @@
               </label>
               <input
                 type="password"
-                placeholder="Contraseña"
+                placeholder="Introduzca su contraseña"
                 name="password"
                 class="input input-bordered"
                 required
               />
+
               <label class="label">
-                <a href="/register" class="label-text-alt link link-hover"
-                  >¿No tienes cuenta?</a
+                <a href="/login" class="label-text-alt link link-hover"
+                  >Ya tengo cuenta</a
                 >
               </label>
             </div>
             <div class="mt-6 form-control">
-              <button class="btn btn-primary">Login</button>
+              <button class="btn btn-primary">Crear Cuenta</button>
             </div>
           </form>
+          <div class="m-5 divider">OR</div>
+          <a class="m-5 bg-white btn" href="/auth/google">
+            <ion-icon name="logo-google"></ion-icon>
+          </a>
         </div>
       </div>
     </div>

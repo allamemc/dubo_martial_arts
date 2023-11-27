@@ -4,6 +4,8 @@ const bodyParser = require("body-parser");
 const session = require("express-session");
 const app = express();
 const Clase = require("./src/models/Clase");
+const GoogleStrategy = require("./src/routes/passportGoogle");
+const passport = require("passport");
 
 dbconnect();
 
@@ -19,6 +21,38 @@ app.use(
     saveUninitialized: true,
   })
 );
+
+app.use(passport.initialize());
+app.use(passport.session());
+
+app.get(
+  "/auth/google",
+  passport.authenticate("google", { scope: ["email", "profile"] })
+);
+
+app.get(
+  "/auth/google/callback",
+  passport.authenticate("google", {
+    successRedirect: "/auth/google/success",
+    failureRedirect: "/auth/google/failure",
+  })
+);
+
+app.get("/auth/google/success", (req, res) => {
+  if (req.isAuthenticated()) {
+    req.session.user = {
+      id: req.user._id,
+      username: req.user.email,
+      name: req.user.name,
+    };
+    res.redirect("/"); // Redirecciona en caso de autenticación exitosa
+  }
+  res.redirect("/auth/google/failure"); // Redirecciona en caso de fallo de autenticación
+});
+
+app.get("/auth/google/failure", (req, res) => {
+  res.status(401).json({ message: "Authentication failed" });
+});
 
 app.get("/", (req, res) => {
   res.redirect("index.html");

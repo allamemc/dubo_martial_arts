@@ -29,7 +29,11 @@ router.post("/login", async (req, res) => {
       }
     } else {
       // En este punto, la autenticación fue exitosa
-      req.session.user = { id: user._id, username: user.username };
+      req.session.user = {
+        id: user._id,
+        username: user.username,
+        name: user.name,
+      };
       res.redirect("/");
     }
   } catch (err) {
@@ -43,7 +47,7 @@ router.get("/register", (req, res) => {
 });
 
 router.post("/register", async (req, res) => {
-  const { username, password } = req.body;
+  const { username, password, user } = req.body;
 
   try {
     // Verifica si el usuario ya existe en la base de datos
@@ -54,7 +58,7 @@ router.post("/register", async (req, res) => {
     }
 
     // Crea un nuevo usuario
-    const newUser = new User({ username, password });
+    const newUser = new User({ username, password, name: user });
     await newUser.save();
 
     res.status(201).json({ message: "User registered successfully" });

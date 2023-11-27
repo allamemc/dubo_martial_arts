@@ -5,6 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="./css/output.css" rel="stylesheet" />
     <link href="./css/style.css" rel="stylesheet" />
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
   </head>
   <body>
     <div class="justify-center navbar bg-primary">
@@ -47,22 +55,25 @@
         </ul>
       </div>
       <div class="navbar-end">
-        <a class="btn btn-sm">Iniciar Sesión</a>
+        <a class="btn btn-sm" href="/register">Crea tu Cuenta</a>
       </div>
     </div>
 
     <div class="min-h-screen hero bg-base-200">
-      <div class="flex-col items-center justify-center max-w-xl hero-content">
-        <div class="shadow-2xl card shrink-0 bg-base-100">
+      <div class="flex-col items-center justify-center w-full hero-content">
+        <div
+          class="shadow-2xl card shrink-0 bg-base-100"
+          style="width: 100%; max-width: 450px"
+        >
           <form class="card-body" action="/login" method="post">
             <h1 class="text-3xl text-center">Inicia Sesión</h1>
             <div class="form-control">
               <label class="label">
-                <span class="label-text">Usuario</span>
+                <span class="label-text">Correo</span>
               </label>
               <input
-                type="text"
-                placeholder="Usuario"
+                type="email"
+                placeholder="Introduce tu correo"
                 name="username"
                 class="input input-bordered"
                 required
@@ -89,6 +100,10 @@
               <button class="btn btn-primary">Login</button>
             </div>
           </form>
+          <div class="m-5 divider">OR</div>
+          <a class="m-5 bg-white btn" href="/auth/google">
+            <ion-icon name="logo-google"></ion-icon>
+          </a>
         </div>
       </div>
     </div>
