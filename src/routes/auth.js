@@ -21,10 +21,8 @@ router.post("/login", async (req, res) => {
 
     if (!user || user.password !== password) {
       if (!user) {
-        console.log("User not found");
         res.redirect(`/login?not_found=true`);
       } else {
-        console.log("Incorrect password");
         res.redirect(`/login?error_password=true`);
       }
     } else {
@@ -43,7 +41,11 @@ router.post("/login", async (req, res) => {
 });
 
 router.get("/register", (req, res) => {
-  res.redirect("register.html");
+  if (req.query.existing) {
+    res.redirect("register.html?existing=true");
+  } else {
+    res.redirect("/register.html");
+  }
 });
 
 router.post("/register", async (req, res) => {
@@ -54,14 +56,20 @@ router.post("/register", async (req, res) => {
     const existingUser = await User.findOne({ username });
 
     if (existingUser) {
-      return res.status(400).json({ message: "User already exists" });
+      res.redirect(`/register?existing=true`);
+    } else {
+      const newUser = new User({ username, password, name: user });
+      await newUser.save();
+
+      req.session.user = {
+        id: newUser._id,
+        username: newUser.username,
+        name: newUser.name,
+      };
+      res.redirect("/");
     }
 
     // Crea un nuevo usuario
-    const newUser = new User({ username, password, name: user });
-    await newUser.save();
-
-    res.status(201).json({ message: "User registered successfully" });
   } catch (err) {
     console.error(err);
     res.status(500).json({ message: "Server error" });

@@ -10,6 +10,42 @@
     margin: 0 auto;
 }
 
+.table {
+    border-collapse: collapse;
+    width: 100%;
+
+  }
+  
+  .table th, .table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+  }
+  
+  .clase {
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
+    background-color: #0284c780;
+    border: 1px solid;
+    border-color: rgb(14 165 233);
+    font-weight: 500;
+    color: rgb(224 242 254);
+    color: white;
+    min-height: 50px;
+    border-radius: 5px;
+  }
+
+  .clase.boxe{
+    background-color: #ff000080;
+    border-color: #ff000080;
+  }
+
+  .clase.thai{
+    background-color: #7700ff80;
+    border-color: #9900ff80;
+  }
+
 @media (max-width: 1008px) {
     .imagen-header {
         display: none;
@@ -33,5 +69,40 @@
     }
 }
 
+#arrow{
+    animation: jump 1.5s infinite;
+}
+
+@keyframes jump {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-5px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
 
 
+
+.profesor{
+   
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    width: 100%;
+
+}
+
+.profesor.shifu{
+    background-image: url("https://i.ytimg.com/vi/JFFiGBZYCZE/maxresdefault.jpg");
+}
+.profesor.rockie{
+    background-image: url("https://e00-marca.uecdn.es/assets/multimedia/imagenes/2017/09/14/15054101118276.jpg");
+}
+.profesor.thai{
+    background-image: url("https://www.eltiempo.com/files/image_640_428/uploads/2020/11/17/5fb451263045d.jpeg");
+}

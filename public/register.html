@@ -13,6 +13,7 @@
       nomodule
       src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
     ></script>
+    <script src="./js/alertas.js"></script>
   </head>
   <body>
     <div class="justify-center navbar bg-primary">
@@ -38,9 +39,9 @@
             class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-primary rounded-box w-52 text-white"
           >
             <li><a href="/">Inicio</a></li>
-            <li><a>Clases</a></li>
-            <li><a>Contacto</a></li>
-            <li><a>Sobre Nosotros</a></li>
+            <li><a href="/profile">Clases</a></li>
+            <li><a href="">Contacto</a></li>
+            <li><a href="">Sobre Nosotros</a></li>
           </ul>
         </div>
 
@@ -49,9 +50,9 @@
       <div class="hidden navbar-center lg:flex">
         <ul class="px-1 text-white menu menu-horizontal">
           <li><a href="/">Inicio</a></li>
-          <li><a>Clases</a></li>
-          <li><a>Contacto</a></li>
-          <li><a>Sobre Nosotros</a></li>
+          <li><a href="/profile">Clases</a></li>
+          <li><a href="">Contacto</a></li>
+          <li><a href="">Sobre Nosotros</a></li>
         </ul>
       </div>
       <div class="navbar-end">
@@ -63,6 +64,7 @@
       <div
         class="flex-col items-center justify-center w-full max-w-xl hero-content"
       >
+        <div id="alerta_container" style="width: 100%; max-width: 450px"></div>
         <div
           class="shadow-2xl card shrink-0 bg-base-100"
           style="width: 100%; max-width: 450px"
