@@ -3,7 +3,8 @@ const dbconnect = require("./src/config/db");
 const bodyParser = require("body-parser");
 const session = require("express-session");
 const app = express();
-const Clase = require("./src/models/Clase"); // Reemplaza con la ruta correcta a tu modelo de clase
+const Clase = require("./src/models/Clase");
+
 dbconnect();
 
 app.use(express.static("public"));
@@ -13,7 +14,7 @@ app.use(bodyParser.json());
 
 app.use(
   session({
-    secret: "your_secret_here", // Cambia esto por una cadena secreta para firmar las cookies de sesión
+    secret: "encrypted data", // Cambia esto por una cadena secreta para firmar las cookies de sesión
     resave: true,
     saveUninitialized: true,
   })
@@ -30,6 +31,7 @@ const checkSession = (req, res, next) => {
     res.redirect("/login"); // Si no hay sesión, redirige al login o a donde desees
   }
 };
+
 app.get("/checkUser", (req, res) => {
   if (req.session.user) {
     res.json("true");
