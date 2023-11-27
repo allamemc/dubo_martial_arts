@@ -22,7 +22,7 @@ function checkUser() {
         change.innerHTML = "<ion-icon name='person-circle-outline'></ion-icon>";
         change.href = "/profile";
         comenzar.textContent = "Ver Clases";
-        comenzar.href = "/clases";
+        comenzar.href = "/profile";
       } else {
         change.classList.remove(
           "btn-circle",
