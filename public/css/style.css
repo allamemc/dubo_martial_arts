@@ -110,3 +110,14 @@
 .profesor.thai{
     background-image: url("https://www.eltiempo.com/files/image_640_428/uploads/2020/11/17/5fb451263045d.jpeg");
 }
+
+.super_alerta{
+    padding-right: 30px;
+    display: flex;
+    width: 100%;
+
+    justify-content: center;
+    align-items: center;
+
+    padding-left: 30px;
+}
