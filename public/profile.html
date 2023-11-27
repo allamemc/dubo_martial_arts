@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="./css/output.css" rel="stylesheet" />
     <link href="./css/style.css" rel="stylesheet" />
+    <script src="./js/tabla.js"></script>
+    <script src="./js/alertas.js"></script>
+    <script src="./js/perfil.js"></script>
     <script
       type="module"
       src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
@@ -78,90 +81,16 @@
         </div>
       </div>
     </div>
+    <div
+      id="alerta_container"
+      style="width: 100%; max-width: 450px; margin: 0 auto"
+    ></div>
     <div class="flex self-center justify-center m-9">
       <div
         class="mb-12 overflow-x-auto"
         style="min-height: 100%; min-width: 70%"
-      >
-        <table class="table">
-          <!-- head -->
-          <thead>
-            <tr>
-              <th>Lunes</th>
-              <th>Martes</th>
-              <th>Miércoles</th>
-              <th>Jueves</th>
-              <th>Viernes</th>
-            </tr>
-          </thead>
-          <tbody>
-            <!-- row 1 -->
-            <tr>
-              <td></td>
-              <td>
-                <a class="clase kara" href="">
-                  <div>17:00 - 18:00</div>
-                  <div>Karate</div>
-                </a>
-              </td>
-              <td></td>
-              <td>
-                <a class="clase kara" href="">
-                  <div>17:00 - 18:00</div>
-                  <div>Karate</div>
-                </a>
-              </td>
-              <td></td>
-            </tr>
-            <!-- row 2 -->
-            <tr>
-              <td>
-                <a class="clase boxe" href="">
-                  <div>18:00 - 19:00</div>
-                  <div>Boxeo</div>
-                </a>
-              </td>
-              <td></td>
-              <td>
-                <a class="clase boxe" href="">
-                  <div>18:00 - 19:00</div>
-                  <div>Boxeo</div>
-                </a>
-              </td>
-              <td></td>
-              <td>
-                <a class="clase boxe" href="">
-                  <div>18:00 - 19:00</div>
-                  <div>Boxeo</div>
-                </a>
-              </td>
-            </tr>
-            <!-- row 3 -->
-            <tr>
-              <td></td>
-              <td>
-                <a class="clase thai" href="">
-                  <div>19:00 - 20:00</div>
-                  <div>Muay Thai</div>
-                </a>
-              </td>
-              <td></td>
-              <td>
-                <a class="clase thai" href="">
-                  <div>19:00 - 20:00</div>
-                  <div>Muay Thai</div>
-                </a>
-              </td>
-              <td>
-                <a class="clase thai" href="">
-                  <div>19:00 - 20:00</div>
-                  <div>Muay Thai</div>
-                </a>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+        id="tabla_clases"
+      ></div>
     </div>
 
     <div class="hero bg-secondary">

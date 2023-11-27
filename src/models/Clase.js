@@ -1,20 +1,22 @@
 const mongoose = require("mongoose");
 
-const karateLessonSchema = new mongoose.Schema({
-  name: {
+// Definición del esquema para la clase
+const ClaseSchema = new mongoose.Schema({
+  nombre: {
     type: String,
     required: true,
   },
-  date: {
-    type: Date,
+  hora: {
+    type: String,
+    required: true,
+  },
+  dia: {
+    type: String,
     required: true,
   },
 });
 
-const KarateLesson = mongoose.model(
-  "KarateLesson",
-  karateLessonSchema,
-  "clases"
-);
+// Modelo de Clase basado en el esquema
+const Clase = mongoose.model("Clase", ClaseSchema, "clases");
 
-module.exports = KarateLesson;
+module.exports = Clase;

@@ -65,5 +65,51 @@ document.addEventListener("DOMContentLoaded", function () {
     alertElement.appendChild(spanElement);
 
     alertContainer.appendChild(alertElement);
+  } else if (
+    urlParams.has("yaapuntado") &&
+    urlParams.get("yaapuntado") === "true"
+  ) {
+    const alertContainer = document.getElementById("alerta_container");
+    const alertElement = document.createElement("div");
+    alertElement.setAttribute("role", "alert");
+    alertElement.setAttribute("class", "alert alert-warning");
+    alertElement.setAttribute("style", "width: 100%; max-width: 450px");
+
+    const iconElement = document.createElement("ion-icon");
+    iconElement.setAttribute("name", "alert-circle-outline");
+    iconElement.setAttribute("style", "font-size: 20px");
+
+    const spanElement = document.createElement("span");
+    spanElement.innerHTML = `Ya esta apuntado en esta clase`;
+
+    alertElement.appendChild(iconElement);
+    alertElement.appendChild(spanElement);
+
+    alertContainer.appendChild(alertElement);
+  } else if (
+    urlParams.has("apuntado") &&
+    urlParams.get("apuntado") === "true"
+  ) {
+    const alertContainer = document.getElementById("alerta_container");
+    const alertElement = document.createElement("div");
+    alertElement.setAttribute("role", "alert");
+    alertElement.setAttribute("class", "alert alert-success text-white");
+    alertElement.setAttribute("style", "width: 100%; max-width: 450px");
+
+    const iconElement = document.createElement("ion-icon");
+    iconElement.setAttribute("name", "checkmark-circle-outline");
+    iconElement.setAttribute("style", "font-size: 20px");
+
+    const spanElement = document.createElement("span");
+    fetch("/getuser").then((response) => {
+      response.json().then((data) => {
+        spanElement.innerHTML = `Apuntado correctamente, se ha mandado un correo a ${data.username}`;
+      });
+    });
+
+    alertElement.appendChild(iconElement);
+    alertElement.appendChild(spanElement);
+
+    alertContainer.appendChild(alertElement);
   }
 });
