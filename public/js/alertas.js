@@ -72,7 +72,10 @@ document.addEventListener("DOMContentLoaded", function () {
     const alertContainer = document.getElementById("alerta_container");
     const alertElement = document.createElement("div");
     alertElement.setAttribute("role", "alert");
-    alertElement.setAttribute("class", "alert alert-warning");
+    alertElement.setAttribute(
+      "class",
+      "alert alert-warning text-white bg-primary"
+    );
     alertElement.setAttribute("style", "width: 100%; max-width: 450px");
 
     const iconElement = document.createElement("ion-icon");
