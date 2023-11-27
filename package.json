@@ -1,10 +1,11 @@
 {
   "name": "hito1_dwec_martial",
   "version": "1.0.0",
-  "main": "app.js",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "tail": "npx tailwindcss -i ./src/input.css -o ./public/css/output.css --watch"
+    "tail": "npx tailwindcss -i ./src/input.css -o ./public/css/output.css --watch",
+    "start": "node index.js"
   },
   "keywords": [],
   "author": "",
