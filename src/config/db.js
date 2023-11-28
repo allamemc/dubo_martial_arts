@@ -1,11 +1,9 @@
 const mongoose = require("mongoose");
+require("dotenv").config();
 
 const dbconnect = async () => {
   try {
-    const conn = await mongoose.connect(
-      "mongodb+srv://allam:UWr6UQ3tlC6JScP4@pruebaatlas.e362l5o.mongodb.net/dubomartial",
-      {}
-    );
+    const conn = await mongoose.connect(process.env.MONGO_URI, {});
     console.log(`MongoDB connected: ${conn.connection.host}`);
   } catch (err) {
     console.log(err);

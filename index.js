@@ -6,6 +6,8 @@ const app = express();
 const Clase = require("./src/models/Clase");
 const GoogleStrategy = require("./src/routes/passportGoogle");
 const passport = require("passport");
+const dotenv = require("dotenv");
+dotenv.config();
 
 const ClaseApuntada = require("./src/models/Claseapuntada");
 
@@ -18,7 +20,7 @@ app.use(bodyParser.json());
 
 app.use(
   session({
-    secret: "encrypted data", // Cambia esto por una cadena secreta para firmar las cookies de sesión
+    secret: process.env.SECRET, // Cambia esto por una cadena secreta para firmar las cookies de sesión
     resave: true,
     saveUninitialized: true,
   })
